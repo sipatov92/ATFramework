@@ -1,0 +1,6 @@
+version: '2'
+services:  
+  the-internet:
+    image: gprestes/the-internet
+    ports:
+      - '5000:5000'
