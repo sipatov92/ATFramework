@@ -13,6 +13,8 @@ namespace ATFramework
         public void Setup()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         [Test]
