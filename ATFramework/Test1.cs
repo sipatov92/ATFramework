@@ -7,15 +7,17 @@ namespace ATFramework
 {
     public class Test1
     {
+        private IWebDriver driver;
+
         [SetUp]
         public void Setup()
         {
+            driver = new ChromeDriver();
         }
 
         [Test]
         public void Test()
         {
-            IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl(@"http://localhost:5000/");
             driver.FindElement(By.XPath("//a[@href='/add_remove_elements/']")).Click();
             driver.FindElement(By.XPath("//button[@onclick='addElement()']")).Click();

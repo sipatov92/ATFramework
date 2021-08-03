@@ -8,9 +8,12 @@ namespace ATFramework
 {
     public class Test2
     {
+        private IWebDriver driver;
+
         [SetUp]
         public void Setup()
         {
+            driver = new ChromeDriver();
         }
 
         [Test]
@@ -22,6 +25,11 @@ namespace ATFramework
             var column1 = driver.FindElement(By.XPath("//input[@type='range']"));
             new Actions(driver).ClickAndHold(column1).MoveByOffset(2, 0).Release().Build().Perform();
             Assert.True(driver.FindElement(By.XPath("//span[@id='range']")).Text.Equals("2.5"));
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
             driver.Quit();
         }
     }
