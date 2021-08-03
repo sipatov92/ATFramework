@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Threading;
+using Core;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 
@@ -10,7 +9,7 @@ namespace ATFramework
 {
 
     [TestFixture]
-    public class Test4
+    public class Test4 : BaseTestCase
     {
         private IWebDriver driver;
         private WebDriverWait wait;
@@ -19,9 +18,6 @@ namespace ATFramework
         [SetUp]
         public void StartUp()
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
         }
 
@@ -38,13 +34,6 @@ namespace ATFramework
             wait.Until(ElementIsVisible(By.XPath("//option[normalize-space(.)='Option 2']")));
             driver.FindElement(By.XPath("//option[normalize-space(.)='Option 2']")).Click();
             Assert.True(driver.FindElement(By.XPath("//option[@selected='selected']")).Text.Equals("Option 2"));
-        }
-
-
-        [TearDown]
-        public void TearDown()
-        {
-            driver.Quit();
         }
     }
 }
