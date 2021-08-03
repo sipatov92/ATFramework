@@ -1,21 +1,12 @@
-﻿using System;
-using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using Core;
 
 namespace ATFramework
 {
-    public class Test1
+    public class Test1 : BaseTestCase
     {
         private IWebDriver driver;
-
-        [SetUp]
-        public void Setup()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        }
 
         [Test]
         public void Test()

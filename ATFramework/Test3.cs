@@ -1,23 +1,13 @@
-﻿using System;
+﻿using Core;
 using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace ATFramework
 {
-    public class Test3
+    public class Test3 : BaseTestCase
     {
         private IWebDriver driver;
-
-        [SetUp]
-        public void Setup()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        }
-
+        
         [Test]
         public void Test()
         {
@@ -29,12 +19,6 @@ namespace ATFramework
             Assert.True(result.Text.Equals("You entered: A"));
             editbox.SendKeys("b");
             Assert.True(result.Text.Equals("You entered: B"));
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            driver.Quit();
         }
     }
 }
