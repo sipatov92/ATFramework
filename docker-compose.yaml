@@ -1,6 +1,25 @@
-version: '2'
-services:  
+version: '3'
+services:
   the-internet:
     image: gprestes/the-internet
+    network_mode: bridge
     ports:
       - '5000:5000'
+  selenoid:
+    image: "aerokube/selenoid"
+    ports:
+      - "4444:4444"
+    volumes:
+      - "./Selenoid/config:/etc/selenoid/" # assumed current dir contains browsers.json
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./Selenoid/video:/opt/selenoid/video"
+      - "./Selenoid/logs:/opt/selenoid/logs"
+  selenoid-ui:
+    image: "aerokube/selenoid-ui"
+    links:
+      - selenoid
+    ports:
+      - "8080:8080"
+    command: [ "--selenoid-uri", "http://172.17.0.1:4444" ]
+  
+

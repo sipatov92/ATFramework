@@ -13,7 +13,6 @@ namespace ATFramework
         [Test]
         public void Test()
         {
-            IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl(@"http://localhost:5000/");
             driver.FindElement(By.XPath("//a[@href='/horizontal_slider']")).Click();
             var column1 = driver.FindElement(By.XPath("//input[@type='range']"));
