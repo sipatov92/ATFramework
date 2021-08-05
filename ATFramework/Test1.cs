@@ -10,7 +10,7 @@ namespace ATFramework
         [Test]
         public void Test()
         {
-            driver.Navigate().GoToUrl(@"http://localhost:5000/");
+            driver.Navigate().GoToUrl(BaseUrl);
             driver.FindElement(By.XPath("//a[@href='/add_remove_elements/']")).Click();
             driver.FindElement(By.XPath("//button[@onclick='addElement()']")).Click();
             var buttonDelete = driver.FindElement(By.XPath("//button[@onclick='deleteElement()']"));
