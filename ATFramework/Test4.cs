@@ -7,13 +7,10 @@ using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace ATFramework
 {
-
     [TestFixture]
     public class Test4 : BaseTestCase
     {
-        private IWebDriver driver;
         private WebDriverWait wait;
-
 
         [SetUp]
         public void StartUp()
@@ -24,8 +21,7 @@ namespace ATFramework
         [Test]
         public void Test()
         {
-            const string uri = "http://localhost:5000/dropdown";
-            driver.Navigate().GoToUrl(uri);
+            driver.Navigate().GoToUrl(BaseUrl);
             wait.Until(ElementExists(By.XPath("//h3[normalize-space(.)='Dropdown List']")));
             wait.Until(TextToBePresentInElement(driver.FindElement(By.XPath("//select[@id='dropdown']")),
                 "Please select an option"));

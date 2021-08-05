@@ -1,6 +1,32 @@
-version: '2'
-services:  
+version: "3"
+services:
   the-internet:
     image: gprestes/the-internet
     ports:
       - '5000:5000'
+  chrome:
+    image: selenium/node-chrome:4.0.0-rc-1-prerelease-20210804
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    ports:
+      - "6900:5900"
+
+  selenium-hub:
+    image: selenium/hub:4.0.0-rc-1-prerelease-20210804
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.33.0.0/16 
