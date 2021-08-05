@@ -6,12 +6,10 @@ namespace ATFramework
 {
     public class Test3 : BaseTestCase
     {
-        private IWebDriver driver;
-        
         [Test]
         public void Test()
         {
-            driver.Navigate().GoToUrl(@"http://localhost:5000/");
+            driver.Navigate().GoToUrl(BaseUrl);
             driver.FindElement(By.XPath("//a[@href='/key_presses']")).Click();
             var editbox = driver.FindElement(By.Id("target"));
             editbox.SendKeys("a");
