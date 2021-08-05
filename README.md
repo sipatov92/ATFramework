@@ -6,7 +6,7 @@
 For deploy application you must install
 [Docker](https://www.docker.com/)
 
-To to check Docker you can use:
+To check Docker you can use:
 ```bash
 docker --version
 ```
