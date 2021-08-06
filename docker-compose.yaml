@@ -5,7 +5,7 @@ services:
     ports:
       - '5000:5000'
   chrome:
-    image: selenium/node-chrome:4.0.0-rc-1-prerelease-20210804
+    image: selenium/node-chrome:latest
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -17,7 +17,7 @@ services:
       - "6900:5900"
 
   selenium-hub:
-    image: selenium/hub:4.0.0-rc-1-prerelease-20210804
+    image: selenium/hub:latest
     container_name: selenium-hub
     ports:
       - "4442:4442"
