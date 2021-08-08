@@ -9,7 +9,7 @@ namespace ATFramework
     public class Test2 : BaseTestCase
     {
         private IWebDriver driver;
-
+ 
         [Test]
         public void Test()
         {
