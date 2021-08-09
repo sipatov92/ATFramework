@@ -23,23 +23,26 @@ To kill application you must run:
 docker compose down
 ```
 #### Deploy selenoid
-For Unix OS first of all you need to give permissions:
-```bash
-chmod u+r+x ./start_selenoid.sh
-```
 
-After that you can start selenoid:
+You can start selenoid:
 ```bash
-./start_selenoid.sh
+./start_selenoid_unix.sh
 ```
 
 To kill selenoid you must run:
 
-For Unix OS first of all you need to give permissions:
+You can run:
 ```bash
-chmod u+r+x ./stop_selenoid.sh
+./stop_selenoid_unix.sh
 ```
-After that you can run:
+
+For Windows to deploy you can run with powershell
+
 ```bash
-./stop_selenoid.sh
+.\start_selenoid_win.ps1
+```
+For Windows to kill app you can run with powershell
+
+```bash
+.\stop_selenoid_win.ps1
 ```
