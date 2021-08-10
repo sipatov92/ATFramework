@@ -4,7 +4,7 @@ using Core;
 
 namespace ATFramework
 {
-    public class Test1 : BaseTestCaseRemoteDriver
+    public class Test1 : BaseTestCase
     {
         
         [Test]
