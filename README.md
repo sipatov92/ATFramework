@@ -11,12 +11,18 @@ To check Docker you can use:
 ```bash
 docker --version
 ```
-To deploy application you must run:
+To deploy application you must run clone it from [github](https://github.com/dotnet-architecture/eShopOnContainers):
+```bash
+git clone https://github.com/dotnet-architecture/eShopOnContainers/
+```
+
+Than you must go to src folder and run:
+
 ```bash
 docker compose up -d
 ```
-In this case, the application will be launched on the localhost:5000
-(127.0.0.1:5000)
+In this case, the application will be launched on the http://host.docker.internal:5104/
+Swagger will be able on http://host.docker.internal:5101
 
 To kill application you must run: 
 ```bash
