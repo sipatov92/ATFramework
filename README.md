@@ -52,3 +52,9 @@ For Windows to kill app you can run with powershell
 ```bash
 .\stop_selenoid_win.ps1
 ```
+
+If you want add android you must copy browsers.json to:
+
+```bash
+C:\Users\<user>\.aerokube\selenoid\browsers.json
+```
