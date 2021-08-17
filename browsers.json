@@ -1,0 +1,60 @@
+{
+    "android": {
+    "default": "8.1",
+    "versions": {
+      "6.0": {
+        "image": "registry.aerokube.com/selenoid/android:6.0",
+        "port": "4444"
+      },
+      "8.1": {
+        "image": "registry.aerokube.com/selenoid/android:8.1",
+        "port": "4444"
+      }
+    }
+  },
+    "chrome": {
+        "default": "92.0",
+        "versions": {
+            "91.0": {
+                "image": "selenoid/chrome:91.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "92.0": {
+                "image": "selenoid/chrome:92.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+    },
+    "firefox": {
+        "default": "90.0",
+        "versions": {
+            "89.0": {
+                "image": "selenoid/firefox:89.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            },
+            "90.0": {
+                "image": "selenoid/firefox:90.0",
+                "port": "4444",
+                "path": "/wd/hub"
+            }
+        }
+    },
+    "opera": {
+        "default": "77.0",
+        "versions": {
+            "76.0": {
+                "image": "selenoid/opera:76.0",
+                "port": "4444",
+                "path": "/"
+            },
+            "77.0": {
+                "image": "selenoid/opera:77.0",
+                "port": "4444",
+                "path": "/"
+            }
+        }
+    }
+}
