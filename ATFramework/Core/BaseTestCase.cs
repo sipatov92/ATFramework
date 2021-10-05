@@ -8,7 +8,8 @@ namespace Core
     public class BaseTestCase
     {
         protected IWebDriver driver;
-        public const string BaseUrl = @"http://127.0.0.1:5000/";
+
+        public const string BaseUrl = @"http://localhost/";
 
         [SetUp]
         public void Setup()
