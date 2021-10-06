@@ -11,7 +11,7 @@ To check Docker you can use:
 ```bash
 docker --version
 ```
-To deploy application you must run run it from [github](https://github.com/dotnet-architecture/eShopOnContainers):
+To deploy application you must run:
 ```bash
 docker compose up -d
 ```
