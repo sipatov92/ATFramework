@@ -15,10 +15,17 @@ To deploy application you must run:
 ```bash
 docker compose up -d
 ```
+
+App will be able on:
+```bash
+http://localhost/
+```
+
 To kill application you must run: 
 ```bash
 docker compose down
 ```
+
 #### Deploy selenoid
 
 You can start selenoid:
