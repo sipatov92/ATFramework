@@ -1,0 +1,6 @@
+﻿menuItemAccount:
+  xPath: //a//span[.='My Account']
+  css: //a//span[.='css']
+
+buttonRegister:
+  xPath: //ul[contains(@class,'dropdown-menu')]//a[.='Register']
