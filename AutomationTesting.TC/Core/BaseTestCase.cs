@@ -8,7 +8,10 @@ namespace Core
 {
     public class BaseTestCase
     {
-        protected IWebDriver driver;
+        private static readonly Lazy<IWebDriver> _driver = new(() => new ChromeDriver());
+
+        protected static IWebDriver Driver => _driver.Value;
+
         protected Configuration Page { get; set; }
 
         public const string BaseUrl = @"http://localhost/";
@@ -16,9 +19,8 @@ namespace Core
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            Driver.Manage().Window.Maximize();
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             Page = new Configuration();
         }
 
@@ -26,7 +28,7 @@ namespace Core
         [TearDown]
         public void TearDown()
         {
-            driver.Quit();
+            Driver.Quit();
         }
     }
 }
