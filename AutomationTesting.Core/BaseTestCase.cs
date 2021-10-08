@@ -8,11 +8,10 @@ namespace AutomationTesting.Core
 {
     public class BaseTestCase
     {
-        
         private static readonly Lazy<IWebDriver> _driver = new(() => new ChromeDriver());
 
         protected static IWebDriver Driver => _driver.Value;
-        
+
         protected Configuration Configuration { get; set; }
 
         public const string BaseUrl = @"http://localhost/";
@@ -26,12 +25,11 @@ namespace AutomationTesting.Core
         }
 
         public TPage CreatePage<TPage>() where TPage : BasePage
-        { 
+        {
             TPage basePage = Configuration.Deserialize<TPage>();
             basePage.Driver = Driver;
             return basePage;
         }
-
 
         [TearDown]
         public void TearDown()
