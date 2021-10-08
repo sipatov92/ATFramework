@@ -6,7 +6,7 @@ namespace AutomationTesting.Common
 {
     public class Configuration
     {
-        public TPage Deserializer<TPage>() where TPage : class
+        public TPage Deserialize<TPage>() where TPage : class
         {
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)

@@ -8,4 +8,10 @@
       <OutputPath>..\Output\</OutputPath>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="NUnit" Version="3.13.2" />
+      <PackageReference Include="Selenium.WebDriver" Version="4.0.0-rc2" />
+      <PackageReference Include="YamlDotNet" Version="11.2.1" />
+    </ItemGroup>
+
 </Project>

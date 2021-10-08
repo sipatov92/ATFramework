@@ -29,4 +29,8 @@
     <ProjectReference Include="..\AutomationTesting.POM\AutomationTesting.POM.csproj" />
     <ProjectReference Include="..\AutomationTesting.Common\AutomationTesting.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core" />
+  </ItemGroup>
 </Project>
