@@ -13,10 +13,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="MainPage\MainPage.yaml">
+      <None Update="RegisterAccountPage.yaml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="RegisterAccountPage\RegisterAccountPage.yaml">
+      <None Update="MainPage.yaml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
