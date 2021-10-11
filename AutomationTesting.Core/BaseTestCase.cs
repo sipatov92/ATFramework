@@ -12,9 +12,9 @@ namespace AutomationTesting.Core
 
         protected static IWebDriver Driver => _driver.Value;
 
-        protected Configuration Configuration { get; set; }
+        private Configuration Configuration { get; set; }
 
-        public const string BaseUrl = @"http://localhost/";
+        protected const string BaseUrl = @"http://localhost/";
 
         [SetUp]
         public void Setup()
@@ -26,9 +26,10 @@ namespace AutomationTesting.Core
 
         public TPage CreatePage<TPage>() where TPage : BasePage
         {
-            TPage basePage = Configuration.Deserialize<TPage>();
-            basePage.Driver = Driver;
-            return basePage;
+            TPage page = Configuration.Deserialize<TPage>();
+            page.Driver = Driver;
+            page.Initialize();
+            return page;
         }
 
         [TearDown]

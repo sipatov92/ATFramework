@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Collections.Generic;
+using OpenQA.Selenium;
 
 namespace AutomationTesting.Core
 {
@@ -6,9 +7,16 @@ namespace AutomationTesting.Core
     {
         internal IWebDriver Driver { get; set; }
 
-        protected Control CreateControl(Control control)
+        internal Dictionary<string, Control> ControlRegistry { get; set; }
+
+        public abstract void Initialize();
+
+        protected Control CreateControl(string name)
         {
+            Control control = ControlRegistry[name];
+
             control.NativeControl = Driver.FindElement(By.XPath(control.XPath));
+
             return control;
         }
     }

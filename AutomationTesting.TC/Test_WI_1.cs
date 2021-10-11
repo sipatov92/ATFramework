@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Threading;
 using AutomationTesting.Core;
-using AutomationTesting.POM.MainPage;
-using AutomationTesting.POM.RegisterAccountPage;
+using AutomationTesting.POM;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
@@ -13,23 +12,29 @@ namespace AutomationTesting.TC
         [Test]
         public void Test()
         {
+            Driver.Navigate().GoToUrl(BaseUrl);
             MainPage mainPage = CreatePage<MainPage>();
-            RegisterAccountPage registerAccountPage = CreatePage<RegisterAccountPage>();
             
 
 
+            #region MyRegion
+            
             Random rnd = new Random();
             var firstName = "Abba" + rnd.Next(1, 50);
             var lastName = "Tarantino" + rnd.Next(1, 50);
             var email = "new" + rnd.Next(1, 50) + "@gmail.com";
             var telephone = rnd.Next(1, 5000).ToString();
             var password = "Qwerty1!";
-            Driver.Navigate().GoToUrl(BaseUrl);
-            Thread.Sleep(4000);
-            mainPage.MenuItemAccountControl.Click();
+            
+            #endregion
+            
+            
+            
+            // mainPage.MenuItemAccountControl.Click();
             Thread.Sleep(2000);
-            mainPage.ButtonRegisterControl.Click();
-            registerAccountPage.EditFirstNameControl.SendKeys(firstName);
+            mainPage.ClickMenuItemAccount().ClickButtonRegister();
+            CreatePage<RegisterAccountPage>();
+
             // Driver.FindElement(By.XPath(registerAccountPage.EditFirstName.XPath)).SendKeys(firstName);
             // Driver.FindElement(By.XPath(registerAccountPage.EditLastName.XPath)).SendKeys(lastName);
             // Driver.FindElement(By.XPath(registerAccountPage.EditEmail.XPath)).SendKeys(email);
@@ -40,7 +45,7 @@ namespace AutomationTesting.TC
             //     .Click();
             // Driver.FindElement(By.XPath(registerAccountPage.ButtonAgree.XPath)).Click();
             // Driver.FindElement(By.XPath(registerAccountPage.ButtonContinue.XPath)).Click();
-            Thread.Sleep(3000);
+            // Thread.Sleep(3000);
         }
     }
 }
