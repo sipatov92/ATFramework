@@ -1,4 +1,5 @@
-﻿using AutomationTesting.Core;
+﻿using System.Threading;
+using AutomationTesting.Core;
 
 namespace AutomationTesting.POM
 {
@@ -14,41 +15,74 @@ namespace AutomationTesting.POM
         public Control ButtonAgree { get; set; }
         public Control ButtonContinue { get; set; }
 
+
+        public Control EditFirstNameControl => CreateControl("EditFirstName");
+        public Control EditLastNameControl => CreateControl("EditLastName");
+        public Control EditEmailControl => CreateControl("EditEmail");
+        public Control EditTelephoneControl => CreateControl("EditTelephone");
+        public Control EditPasswordControl => CreateControl("EditPassword");
+        public Control EditConfirmPasswordControl => CreateControl("EditConfirmPassword");
+        public Control RadioButtonNoControl => CreateControl("RadioButtonNo");
+        public Control ButtonAgreeControl => CreateControl("ButtonAgree");
+        public Control ButtonContinueControl => CreateControl("ButtonContinue");
+
+
         public override void Initialize()
         {
-            EditFirstName = CreateControl("EditFirstName");
-            EditLastName = CreateControl("EditLastName");
-            EditEmail = CreateControl("EditEmail");
-            EditTelephone = CreateControl("EditTelephone");
-            EditFirstName = CreateControl("EditFirstName");
-            EditPassword = CreateControl("EditPassword");
-            EditConfirmPassword = CreateControl("EditConfirmPassword");
-            RadioButtonNo = CreateControl("RadioButtonNo");
-            ButtonAgree = CreateControl("ButtonAgree");
-            ButtonContinue = CreateControl("ButtonContinue");
         }
 
         public RegisterAccountPage SetFirstName(string value)
         {
-            EditFirstName.SetValue(value);
+            Thread.Sleep(3000);
+            EditFirstNameControl.SetValue(value);
             return this;
         }
 
         public RegisterAccountPage SetLastName(string value)
         {
-            EditLastName.SetValue(value);
+            EditLastNameControl.SetValue(value);
             return this;
         }
 
         public RegisterAccountPage SetEmail(string value)
         {
-            EditEmail.SetValue(value);
+            EditEmailControl.SetValue(value);
             return this;
         }
-        
+
         public RegisterAccountPage SetTelephone(string value)
         {
-            EditTelephone.SetValue(value);
+            EditTelephoneControl.SetValue(value);
+            return this;
+        }
+
+        public RegisterAccountPage SetPassword(string value)
+        {
+            EditPasswordControl.SetValue(value);
+            return this;
+        }
+
+        public RegisterAccountPage SetConfirmPassword(string value)
+        {
+            EditConfirmPasswordControl.SetValue(value);
+            return this;
+        }
+
+        public RegisterAccountPage ClickRadioButtonNo()
+        {
+            RadioButtonNoControl.Click();
+            return this;
+        }
+
+        public RegisterAccountPage ClickButtonAgree()
+        {
+            ButtonAgreeControl.Click();
+            return this;
+        }
+
+        public RegisterAccountPage ClickButtonContinue()
+        {
+            ButtonContinueControl.Click();
             return this;
         }
     }

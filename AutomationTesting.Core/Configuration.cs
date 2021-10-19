@@ -19,7 +19,7 @@ namespace AutomationTesting.Common
 
             foreach (var property in page.GetType().GetProperties())
             {
-                if (property.GetValue(page) is Control)
+                if (!property.Name.Contains("Control") && property.GetValue(page) is Control)
                     page.ControlRegistry.Add(property.Name, (Control) property.GetValue(page));
             }
             

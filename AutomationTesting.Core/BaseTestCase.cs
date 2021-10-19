@@ -28,7 +28,6 @@ namespace AutomationTesting.Core
         {
             TPage page = Configuration.Deserialize<TPage>();
             page.Driver = Driver;
-            page.Initialize();
             return page;
         }
 
