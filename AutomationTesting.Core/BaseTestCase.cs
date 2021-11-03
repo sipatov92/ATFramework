@@ -11,9 +11,6 @@ namespace AutomationTesting.Core
         private static readonly Lazy<IWebDriver> _driver = new(() => new ChromeDriver());
 
         protected static IWebDriver Driver => _driver.Value;
-
-        private Configuration Configuration { get; set; }
-
         protected const string BaseUrl = @"http://localhost/";
 
         [SetUp]
@@ -21,7 +18,6 @@ namespace AutomationTesting.Core
         {
             Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            Configuration = new Configuration();
         }
 
         public TPage CreatePage<TPage>() where TPage : BasePage
@@ -32,9 +28,6 @@ namespace AutomationTesting.Core
         }
 
         [TearDown]
-        public void TearDown()
-        {
-            Driver.Quit();
-        }
+        public void TearDown() => Driver.Quit();
     }
 }

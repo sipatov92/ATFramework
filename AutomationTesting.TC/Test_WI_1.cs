@@ -35,8 +35,6 @@ namespace AutomationTesting.TC
                 .ClickRadioButtonNo()
                 .ClickButtonAgree()
                 .ClickButtonContinue();
-
-            Thread.Sleep(5000);
         }
     }
 }
