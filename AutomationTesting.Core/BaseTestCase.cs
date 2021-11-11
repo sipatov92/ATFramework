@@ -1,33 +1,21 @@
 ﻿using System;
-using AutomationTesting.Common;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace AutomationTesting.Core
 {
-    public class BaseTestCase
+    public class BaseTestCase : BasePage
     {
-        private static readonly Lazy<IWebDriver> _driver = new(() => new ChromeDriver());
-
-        protected static IWebDriver Driver => _driver.Value;
-        protected const string BaseUrl = @"http://localhost/";
+        private const string BaseUrl = @"http://localhost/";
 
         [SetUp]
         public void Setup()
         {
-            Driver.Manage().Window.Maximize();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        }
-
-        public TPage CreatePage<TPage>() where TPage : BasePage
-        {
-            TPage page = Configuration.Deserialize<TPage>();
-            page.Driver = Driver;
-            return page;
+            BaseDriver.Driver.Navigate().GoToUrl(BaseUrl);
+            BaseDriver.Driver.Manage().Window.Maximize();
+            BaseDriver.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         [TearDown]
-        public void TearDown() => Driver.Quit();
+        public void TearDown() => BaseDriver.Driver.Quit();
     }
 }

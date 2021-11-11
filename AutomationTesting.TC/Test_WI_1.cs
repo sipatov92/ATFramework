@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using AutomationTesting.Core;
 using AutomationTesting.POM;
 using NUnit.Framework;
@@ -11,8 +10,6 @@ namespace AutomationTesting.TC
         [Test]
         public void Test()
         {
-            Driver.Navigate().GoToUrl(BaseUrl);
-
             #region MyRegion
 
             Random rnd = new Random();
@@ -24,8 +21,10 @@ namespace AutomationTesting.TC
 
             #endregion
 
-            CreatePage<MainPage>().ClickMenuItemAccount()
-                .ClickButtonRegister(CreatePage<RegisterAccountPage>())
+            CreatePage<MainPage>()
+                .ClickMenuItemAccount()
+                .ClickButtonRegister()
+                .CreatePage<RegisterAccountPage>()
                 .SetFirstName(firstName)
                 .SetLastName(lastName)
                 .SetEmail(email)

@@ -16,21 +16,16 @@ namespace AutomationTesting.POM
         public Control ButtonContinue { get; set; }
 
 
-        public Control EditFirstNameControl => CreateControl("EditFirstName");
-        public Control EditLastNameControl => CreateControl("EditLastName");
-        public Control EditEmailControl => CreateControl("EditEmail");
-        public Control EditTelephoneControl => CreateControl("EditTelephone");
-        public Control EditPasswordControl => CreateControl("EditPassword");
-        public Control EditConfirmPasswordControl => CreateControl("EditConfirmPassword");
-        public Control RadioButtonNoControl => CreateControl("RadioButtonNo");
-        public Control ButtonAgreeControl => CreateControl("ButtonAgree");
-        public Control ButtonContinueControl => CreateControl("ButtonContinue");
-
-
-        public override void Initialize()
-        {
-        }
-
+        private Control EditFirstNameControl => CreateControl("EditFirstName");
+        private Control EditLastNameControl => CreateControl("EditLastName");
+        private Control EditEmailControl => CreateControl("EditEmail");
+        private Control EditTelephoneControl => CreateControl("EditTelephone");
+        private Control EditPasswordControl => CreateControl("EditPassword");
+        private Control EditConfirmPasswordControl => CreateControl("EditConfirmPassword");
+        private Control RadioButtonNoControl => CreateControl("RadioButtonNo");
+        private Control ButtonAgreeControl => CreateControl("ButtonAgree");
+        private Control ButtonContinueControl => CreateControl("ButtonContinue");
+        
         public RegisterAccountPage SetFirstName(string value)
         {
             Thread.Sleep(3000);
@@ -85,5 +80,6 @@ namespace AutomationTesting.POM
             ButtonContinueControl.Click();
             return this;
         }
+        
     }
 }

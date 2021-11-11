@@ -8,25 +8,20 @@ namespace AutomationTesting.POM
         public Control MenuItemAccount { get; set; }
         public Control ButtonRegister { get; set; }
 
-        public Control MenuItemAccountControl => CreateControl("MenuItemAccount");
-        public Control ButtonRegisterControl => CreateControl("ButtonRegister");
-
-
-        public override void Initialize()
-        {
-        }
-
+        private Control MenuItemAccountControl => CreateControl("MenuItemAccount");
+        private Control ButtonRegisterControl => CreateControl("ButtonRegister");
+        
         public MainPage ClickMenuItemAccount()
         {
             MenuItemAccountControl.Click();
             return this;
         }
 
-        public RegisterAccountPage ClickButtonRegister(RegisterAccountPage page)
+        public MainPage ClickButtonRegister()
         {
             Thread.Sleep(3000);
             ButtonRegisterControl.Click();
-            return page;
+            return this;
         }
     }
 }
